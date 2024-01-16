@@ -3,7 +3,7 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-const inputElem = document.querySelector('.number');
+const inputElem = document.querySelector("input[type=number]");
 const createBtn = inputElem.nextElementSibling;
 const destrBtn = createBtn.nextElementSibling;
 const boxes = document.querySelector('#boxes');
@@ -31,10 +31,10 @@ function createBoxes(amount){
 }
 
 createBtn.addEventListener('click', () => {
-  const amount = Number(inputElem.value)
-  if ( 1 <= amount <= 100) {
-    inputElem.value = '';
+  if (inputElem.value >= 1 && inputElem.value <= 100){
+    const amount = Number(inputElem.value)
     createBoxes(amount);
+    inputElem.value = '';
   }
 })
 
